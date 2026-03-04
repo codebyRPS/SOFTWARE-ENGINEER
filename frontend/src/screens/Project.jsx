@@ -34,7 +34,7 @@ const Project = () => {
     const [ project, setProject ] = useState(location.state.project)
     const [ message, setMessage ] = useState('')
     const { user } = useContext(UserContext)
-    const messageBox = React.createRef()
+    const messageBox = useRef(null)
 
     const [ users, setUsers ] = useState([])
     const [ messages, setMessages ] = useState([]) // New state variable for messages
@@ -277,7 +277,7 @@ const Project = () => {
 
 
                             return (
-                                <div className="user cursor-pointer hover:bg-slate-200 p-2 flex gap-2 items-center">
+                                <div key={user._id} className="user cursor-pointer hover:bg-slate-200 p-2 flex gap-2 items-center">
                                     <div className='aspect-square rounded-full w-fit h-fit flex items-center justify-center p-5 text-white bg-slate-600'>
                                         <i className="ri-user-fill absolute"></i>
                                     </div>
