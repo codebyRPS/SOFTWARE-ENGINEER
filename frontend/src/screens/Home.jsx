@@ -35,7 +35,7 @@ const Home = () => {
 
         try {
             const res = await axios.post('/projects/create', { name: projectName });
-            setProjects([...projects, res.data.project]); // Optimistic update
+            setProjects([...projects, res.data]); // Optimistic update
             setIsModalOpen(false);
             setProjectName('');
         } catch (error) {
